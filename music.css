@@ -24,6 +24,7 @@ nav ul li{
     border-radius: 30px;
     padding: 0 8px;
 }
+
 .logo{
     display: flex;
     font-weight: bolder;
@@ -38,7 +39,10 @@ nav ul li{
     display: flex;
     flex-wrap: wrap;
     margin: 20px auto;
+    margin-bottom: 60px;
     border-radius: 6px;
+    justify-content: center;
+
 }
 
 .song-container{
@@ -67,11 +71,14 @@ nav ul li{
 }
 
 .buttom{
-    position:relative;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
     background-color: rgb(226, 170, 101);
     display: flex;
     height: 50px;
-    align-items: center; 
+   align-items: center; 
     justify-content: center;
 }
 
