@@ -3,17 +3,32 @@ let next = document.getElementById("next")
 let pre = document.getElementById("previous")
 let sound = document.getElementById("sound")
 let bar = document.getElementById("progressbar")
+let songholder= Array.from( document.getElementsByClassName("songBox"))
 
-let audio1Element = new Audio('songs/3.mp3')
+let audio1Element = new Audio('songs/2.mp3')
 // audio1Element.play()
 
 let songs = [
-    { songName: "laila main laila", link: "/songs/1.mp3", pic: "/images/1.jpg" },
-    { songName: "dhfh", link: "/songs/2.mp3", pic: "/images/2.jpg" },
-    { songName: "dil se dil tak", link: "/songs/3.mp3", pic: "/images/3.jpg" },
-    { songName: "cigarate after sex", link: "/songs/4.mp3", pic: "/images/4.jpg" }
-
+    { songName: "Kesariya", link: "/songs/1.mp3", pic: "/images/1.jpg" },
+    { songName: "Sajni Re", link: "/songs/2.mp3", pic: "/images/2.jpg" },
+    { songName: "Saiyara", link: "/songs/3.mp3", pic: "/images/3.jpg" },
+    { songName: "Cigarate After Sex", link: "/songs/4.mp3", pic: "/images/4.jpg" },
+    { songName: "Nagin Dance", link: "/songs/5.mp3", pic: "/images/5.jpg" },
+    { songName: "Khairiyat", link: "/songs/6.mp3", pic: "/images/6.jpg" },
+    { songName: "Hawayein", link: "/songs/7.mp3", pic: "/images/7.jpg" },
+    { songName: "Mast Magan", link: "/songs/8.mp3", pic: "/images/8.jpg" },
+    { songName: "Sanam Teri Kasam", link: "/songs/9.mp3", pic: "/images/9.jpg" },
+    { songName: "Saware", link: "/songs/10.mp3", pic: "/images/10.jpg" }
 ]
+
+songholder.forEach((element, i)=>{
+    // console.log(element, i)
+    element.getElementsByClassName("image")[0].src = songs[i].pic
+     element.getElementsByClassName("songname")[0].innerHTML= songs[i].songName
+    
+})
+
+
 
 play.addEventListener("click", () => {
     if (audio1Element.paused || audio1Element.currentTime <= 0) {
@@ -36,4 +51,33 @@ audio1Element.addEventListener("timeupdate", () => {
 
 bar.addEventListener("change", () => {
     audio1Element.currentTime = ((bar.value * audio1Element.duration) / 100)
+})
+
+const removeall =()=>{
+    Array.from(document.getElementsByClassName("image")).forEach((element)=>{
+    element.classList.remove("img2")
+    element.classList.add("img1")
+})
+ play.classList.remove("fa-circle-play")
+        play.classList.add("fa-circle-pause")
+}
+
+Array.from(document.getElementsByClassName("image")).forEach((element)=>{
+    // console.log(element)
+    element.addEventListener("click", (e)=>{
+        // console.log(element.src)
+        removeall()
+        e.target.classList.remove("img1")
+        e.target.classList.add("img2")
+       let index=parseInt(e.target.id)
+        audio1Element.src=`/songs/${index +1}.mp3`
+        audio1Element.currentTime=0
+        audio1Element.play()
+        let footerImg=document.getElementById("footerImg")
+        footerImg.src=element.src
+        let footerText=document.getElementById("footerText")
+        footerText.innerHTML=(element.nextElementSibling.innerHTML)
+    })
+    // play.classList.remove('fa-circle-pause')
+    //     play.classList.add("fa-circle-play")
 })

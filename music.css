@@ -45,7 +45,7 @@ nav ul li{
 
 }
 
-.song-container{
+.song-container1{
     display:flex;
     flex-wrap: wrap;
     width: 90px;
@@ -56,15 +56,23 @@ nav ul li{
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-
 }
 
-.song-container img{
+
+.image{
     height: 70px;
     width: 70px;
+    cursor: pointer;
 }
 
-.song-container h3{
+.img2{
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px black;
+}
+
+.song-container1 h3{
     justify-content: center;
     height:fit-content;
     
