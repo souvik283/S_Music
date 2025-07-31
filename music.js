@@ -84,9 +84,25 @@ Array.from(document.getElementsByClassName("image")).forEach((element) => {
 })
 
 next.addEventListener("click", ()=>{
+    if(index<9){
     index++
+    }else{
+        index=0
+    }
             audio1Element.src = `/songs/${index + 1}.mp3`
         audio1Element.currentTime = 0
         audio1Element.play()
 
+        let footerImg = document.getElementById("footerImg")
+        footerImg.src = `/images/${index+1}.jpg`
+        // let footerText = document.getElementById("footerText")
+        // footerText.innerHTML = (element.nextElementSibling.innerHTML)
+        play.classList.remove('fa-circle-play')
+        play.classList.add("fa-circle-pause")
+        })
+
+sound.addEventListener("click",()=>{
+    Array.from(document.getElementsByClassName("image")).forEach((element) => {
+
+    })
 })

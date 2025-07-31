@@ -68,12 +68,14 @@ nav ul li {
     height: 70px;
     width: 70px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .img2 {
     height: 80px;
     width: 80px;
     cursor: pointer;
+    border-radius: 5px;
     box-shadow: 0 8px 16px black;
 }
 
@@ -96,14 +98,15 @@ nav ul li {
 }
 
 .buttom img {
-    height: 30px;
+    height: 35px;
     margin: 0 15px;
+    border-radius: 12px;
 }
 
 .buttom input {
     width: 40vw;
-    margin-left: 95px;
-    margin-right: 40px;
+    margin-left: 4vw;
+    margin-right: 2vw;
     cursor: pointer;
 }
 
@@ -111,4 +114,8 @@ nav ul li {
     margin: 0 15px;
     left: 20px;
     cursor: pointer;
+}
+
+.buttom p {
+    width: 200px;
 }
