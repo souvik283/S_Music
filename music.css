@@ -62,6 +62,12 @@ nav ul li {
     justify-content: center;
     border-radius: 6px;
 }
+.song-container1:hover{
+    width: 92px;
+    height: 152px;
+        margin: 8px 8px;
+    box-shadow: 0 8px 16px rgb(241, 231, 149);
+}
 
 
 .image {

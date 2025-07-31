@@ -83,26 +83,58 @@ Array.from(document.getElementsByClassName("image")).forEach((element) => {
     })
 })
 
-next.addEventListener("click", ()=>{
-    if(index<9){
-    index++
-    }else{
-        index=0
+next.addEventListener("click", () => {
+    if (index < 9) {
+        index++
+    } else {
+        index = 0
     }
-            audio1Element.src = `/songs/${index + 1}.mp3`
-        audio1Element.currentTime = 0
-        audio1Element.play()
+    audio1Element.src = `/songs/${index + 1}.mp3`
+    audio1Element.currentTime = 0
+    audio1Element.play()
+    let footerImg = document.getElementById("footerImg")
+    footerImg.src = `/images/${index + 1}.jpg`
+    let footerText = document.getElementById("footerText")
+    footerText.innerHTML = songs[index].songName
+    removeall()
+    let imageNo = Array.from(document.getElementsByClassName("image"))
+    imageNo[index].classList.remove("img1")
+    imageNo[index].classList.add("img2")
+    play.classList.remove('fa-circle-play')
+    play.classList.add("fa-circle-pause")
+})
 
-        let footerImg = document.getElementById("footerImg")
-        footerImg.src = `/images/${index+1}.jpg`
-        // let footerText = document.getElementById("footerText")
-        // footerText.innerHTML = (element.nextElementSibling.innerHTML)
-        play.classList.remove('fa-circle-play')
-        play.classList.add("fa-circle-pause")
-        })
+pre.addEventListener("click", () => {
+    if (index > 0) {
+        index--
+    } else {
+        index = 9
+    }
+    audio1Element.src = `/songs/${index + 1}.mp3`
+    audio1Element.currentTime = 0
+    audio1Element.play()
+    let footerImg = document.getElementById("footerImg")
+    footerImg.src = `/images/${index + 1}.jpg`
+    let footerText = document.getElementById("footerText")
+    footerText.innerHTML = songs[index].songName
+    removeall()
+    let imageNo = Array.from(document.getElementsByClassName("image"))
+    imageNo[index].classList.remove("img1")
+    imageNo[index].classList.add("img2")
+    play.classList.remove('fa-circle-play')
+    play.classList.add("fa-circle-pause")
+})
 
-sound.addEventListener("click",()=>{
-    Array.from(document.getElementsByClassName("image")).forEach((element) => {
+sound.addEventListener("click", () => {
+    // console.log(audio1Element.muted)
+    if (audio1Element.muted) {
+        sound.classList.remove("fa-volume-xmark")
+        sound.classList.add("fa-volume-high")
+        audio1Element.muted = !(audio1Element.muted)
+    } else {
+        sound.classList.remove("fa-volume-high")
+        sound.classList.add("fa-volume-xmark")
+        audio1Element.muted = !(audio1Element.muted)
+    }
 
-    })
 })
