@@ -3,9 +3,10 @@ let next = document.getElementById("next")
 let pre = document.getElementById("previous")
 let sound = document.getElementById("sound")
 let bar = document.getElementById("progressbar")
-let songholder= Array.from( document.getElementsByClassName("songBox"))
+let songholder = Array.from(document.getElementsByClassName("songBox"))
 
-let audio1Element = new Audio('songs/2.mp3')
+let audio1Element = new Audio('songs/1.mp3')
+let index = 0;
 // audio1Element.play()
 
 let songs = [
@@ -21,11 +22,11 @@ let songs = [
     { songName: "Saware", link: "/songs/10.mp3", pic: "/images/10.jpg" }
 ]
 
-songholder.forEach((element, i)=>{
+songholder.forEach((element, i) => {
     // console.log(element, i)
     element.getElementsByClassName("image")[0].src = songs[i].pic
-     element.getElementsByClassName("songname")[0].innerHTML= songs[i].songName
-    
+    element.getElementsByClassName("songname")[0].innerHTML = songs[i].songName
+
 })
 
 
@@ -53,31 +54,39 @@ bar.addEventListener("change", () => {
     audio1Element.currentTime = ((bar.value * audio1Element.duration) / 100)
 })
 
-const removeall =()=>{
-    Array.from(document.getElementsByClassName("image")).forEach((element)=>{
-    element.classList.remove("img2")
-    element.classList.add("img1")
-})
- play.classList.remove("fa-circle-play")
-        play.classList.add("fa-circle-pause")
+const removeall = () => {
+    Array.from(document.getElementsByClassName("image")).forEach((element) => {
+        element.classList.remove("img2")
+        element.classList.add("img1")
+    })
+    play.classList.remove("fa-circle-play")
+    play.classList.add("fa-circle-pause")
 }
 
-Array.from(document.getElementsByClassName("image")).forEach((element)=>{
+Array.from(document.getElementsByClassName("image")).forEach((element) => {
     // console.log(element)
-    element.addEventListener("click", (e)=>{
+    element.addEventListener("click", (e) => {
         // console.log(element.src)
         removeall()
         e.target.classList.remove("img1")
         e.target.classList.add("img2")
-       let index=parseInt(e.target.id)
-        audio1Element.src=`/songs/${index +1}.mp3`
-        audio1Element.currentTime=0
+        index = parseInt(e.target.id)
+        audio1Element.src = `/songs/${index + 1}.mp3`
+        audio1Element.currentTime = 0
         audio1Element.play()
-        let footerImg=document.getElementById("footerImg")
-        footerImg.src=element.src
-        let footerText=document.getElementById("footerText")
-        footerText.innerHTML=(element.nextElementSibling.innerHTML)
+        let footerImg = document.getElementById("footerImg")
+        footerImg.src = element.src
+        let footerText = document.getElementById("footerText")
+        footerText.innerHTML = (element.nextElementSibling.innerHTML)
+        play.classList.remove('fa-circle-play')
+        play.classList.add("fa-circle-pause")
     })
-    // play.classList.remove('fa-circle-pause')
-    //     play.classList.add("fa-circle-play")
+})
+
+next.addEventListener("click", ()=>{
+    index++
+            audio1Element.src = `/songs/${index + 1}.mp3`
+        audio1Element.currentTime = 0
+        audio1Element.play()
+
 })
