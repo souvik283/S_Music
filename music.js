@@ -19,7 +19,11 @@ let songs = [
     { songName: "Hawayein", link: "/songs/7.mp3", pic: "/images/7.jpg" },
     { songName: "Mast Magan", link: "/songs/8.mp3", pic: "/images/8.jpg" },
     { songName: "Sanam Teri Kasam", link: "/songs/9.mp3", pic: "/images/9.jpg" },
-    { songName: "Saware", link: "/songs/10.mp3", pic: "/images/10.jpg" }
+    { songName: "Saware", link: "/songs/10.mp3", pic: "/images/10.jpg" },
+    { songName: "Kishori", link: "/songs/11.mp3", pic: "/images/11.jpg" },
+    { songName: "Bagichay Bulbuli Tui", link: "/songs/12.mp3", pic: "/images/12.jpg" },
+    { songName: "Paglu dance", link: "/songs/13.mp3", pic: "/images/13.jpg" },
+    { songName: "Thodi Si", link: "/songs/14.mp3", pic: "/images/14.jpg" }
 ]
 
 songholder.forEach((element, i) => {
