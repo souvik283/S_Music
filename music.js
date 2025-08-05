@@ -88,7 +88,7 @@ Array.from(document.getElementsByClassName("image")).forEach((element) => {
 })
 
 next.addEventListener("click", () => {
-    if (index < 9) {
+    if (index < 13) {
         index++
     } else {
         index = 0
@@ -112,7 +112,7 @@ pre.addEventListener("click", () => {
     if (index > 0) {
         index--
     } else {
-        index = 9
+        index = 13
     }
     audio1Element.src = `/songs/${index + 1}.mp3`
     audio1Element.currentTime = 0
